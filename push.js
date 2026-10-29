@@ -9,10 +9,10 @@ window.kryshaSubscribe=async()=>{
  const el=get('pushStatus');try{
   if(!('serviceWorker'in navigator)||!('PushManager'in window)||!('Notification'in window))throw Error('Браузер не поддерживает Web Push.');
   if(Notification.permission==='denied')throw Error('Уведомления запрещены в настройках устройства.');
+  const permission=await Notification.requestPermission();
   el.textContent='Подключаем уведомления...';
   const key=await api({action:'key'});
   const reg=await navigator.serviceWorker.ready;
-  const permission=await Notification.requestPermission();
   if(permission!=='granted')throw Error('Разрешение на уведомления не предоставлено.');
   const sub=await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64ToBytes(key.publicKey)});
   await api({action:'subscribe',subscription:sub.toJSON()});
