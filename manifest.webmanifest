@@ -1,0 +1,17 @@
+{
+  "name": "КРЫША — твой вечер",
+  "short_name": "КРЫША",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#100d10",
+  "theme_color": "#100d10",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
